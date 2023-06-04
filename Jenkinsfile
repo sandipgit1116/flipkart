@@ -13,6 +13,6 @@ pipeline {
                  stage('Deployment'){
                      steps {
                      
-                          sh 'cp target/LoginWebApp.war /home/sandip/Documents/devops-tools/apache-tomcat-9.0.73/webapps'
+                          sh 'cp target/flipkart.war /home/sandip/Documents/devops-tools/apache-tomcat-9.0.73/webapps'
                           }
                     }}}        
