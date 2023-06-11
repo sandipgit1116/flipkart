@@ -10,19 +10,19 @@ pipeline {
 	        steps {
 			checkout scm			       
 		      }}
-		stage('Build') {
+		stages('Build') {
 	           steps {
 			  sh '/home/user1/slaveDD1/apache-maven-3.9.1/mvn install'
 	                 }}
-		stage('Deployment'){
+		stages('Deployment'){
 		    steps {
 			sh 'sshpass -p "redhat" scp target/flipkart.war user1@172.17.0.2:/home/user1/slaveDD1/apache-tomcat-9.0.73/webapps'
 			}}
-		stage('Docker build'){
+		stages('Docker build'){
 		    steps {
 			sh 'docker build -t sandipdocker1116/pipelineimage11.1.2 .'
 			}}
-		stage('Docker Login'){
+		stages('Docker Login'){
 		    steps {
 		withCredentials([string(credentialsId: 'sandipdocker1116', variable: 'docker-sandipdocker')]) {
     		sh 'docker login -u sandipdocker1116 -p${docker-Sandip@1116}'                 
@@ -30,7 +30,7 @@ pipeline {
 			}
 			
 			}}
-		stage('Push Image to Docker Hub') {         
+		stages('Push Image to Docker Hub') {         
     		    steps{                            
  			sh 'docker push sandipdocker1116/pipelineimage11.1.2:$BUILD_NUMBER'           
 			echo 'Push Image Completed'       
