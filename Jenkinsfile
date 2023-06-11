@@ -16,7 +16,7 @@ pipeline {
 	                 }}
 		stage('Deployment'){
 		    steps {
-			sh 'sshpass -p "dev" scp target/flipkart.war user1@172.17.0.2:/home/user1/slaveDD1/apache-tomcat-9.0.73/webapps'
+			sh 'sshpass -p "redhat" scp target/flipkart.war user1@172.17.0.2:/home/user1/slaveDD1/apache-tomcat-9.0.73/webapps'
 			}}
 		stage('Docker build'){
 		    steps {
