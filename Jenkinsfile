@@ -12,11 +12,11 @@ pipeline {
 		      }}
 		stage('Build') {
 	           steps {
-			  sh '/home/user1/slaveDD1/apache-maven-3.9.1'
+			  sh '/home/user1/slaveDD1/apache-maven-3.9.1/mvn install'
 	                 }}
 		stage('Deployment'){
 		    steps {
-			sh 'sshpass -p "dev" scp target/LoginWebAppApplicationWith-Docker.war user1@172.17.0.2:/home/user1/slaveDD1/apache-tomcat-9.0.73/webapps'
+			sh 'sshpass -p "dev" scp target/flipkart.war user1@172.17.0.2:/home/user1/slaveDD1/apache-tomcat-9.0.73/webapps'
 			}}
 		stage('Docker build'){
 		    steps {
