@@ -12,7 +12,7 @@ pipeline {
 		      }}
 		stage('Build') {
 	           steps {
-			  sh '/home/user1/slaveDD1/apache-maven-3.9.1/mvn install'
+			  sh '/home/user1/slaveDD1/apache-maven-3.9.1/bin/mvn install'
 	                 }}
 		stage('Deployment'){
 		    steps {
